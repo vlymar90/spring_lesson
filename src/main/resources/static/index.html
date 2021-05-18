@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="index.js"></script>
+    <title>Market</title>
+</head>
+<body>
+<div class="container" ng-controller="indexController">
+<h3>Наши товары</h3>
+<table class="table table-hover" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>Наименование товара</td>
+        <td>Цена</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in Products">
+        <td>{{p.id}}</td>
+        <td>{{p.title}}</td>
+        <td>{{p.price}}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить товар</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <button class="ui-icon-link" ng-click="getPage(0)">1</button>
+    <button class="ui-icon-link" ng-click="getPage(1)">2</button>
+    <button class="ui-icon-link" ng-click="getPage(2)">3</button>
+    <button class="ui-icon-link" ng-click="getPage(3)">4</button>
+
+</div>
+</body>
+</html>
