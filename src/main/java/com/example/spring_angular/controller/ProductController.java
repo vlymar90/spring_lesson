@@ -20,8 +20,23 @@ public class ProductController {
         return productService.findAllProduct(page);
     }
 
+    @GetMapping("/{id}")
+    public Products getProduct(@PathVariable Long id) {
+        return productService.getProduct(id);
+    }
+
     @DeleteMapping("/{id}")
     public void removeProductById(@PathVariable Long id) {
         productService.deleteProductById(id);
+    }
+
+    @PostMapping
+    public Long addProduct(@RequestBody Products products) {
+        return productService.save(products);
+    }
+
+    @PutMapping("/{id}")
+    public Long update(@RequestBody Products products) {
+        return productService.save(products);
     }
 }

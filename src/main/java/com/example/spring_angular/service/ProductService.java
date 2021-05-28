@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -26,5 +27,13 @@ public class ProductService {
 
     public void deleteProductById(Long id) {
         productRepository.deleteById(id);
+    }
+
+    public Long save(Products products) {
+        return productRepository.save(products).getId();
+    }
+
+    public Products getProduct(Long id) {
+        return productRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 }
