@@ -16,7 +16,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping()
-    public List<Products> getAllProduct(@RequestParam(name = "page") int page) {
+    public List<ProductDto> getAllProduct(@RequestParam(name = "page") int page) {
         return productService.findAllProduct(page);
     }
 

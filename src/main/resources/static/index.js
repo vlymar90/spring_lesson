@@ -21,6 +21,13 @@ const baseUrl = 'http://localhost:8090/market/api/v1';
             });
     };
 
+    $scope.addBasket = function (id) {
+        $http.get(baseUrl + '/basket/' + id)
+            .then(function (response) {
+            console.log(response);
+        })
+    };
+
     $scope.saveProduct = function () {
         console.log($scope.Product)
         $http.post(baseUrl + '/products', $scope.Product)

@@ -12,9 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -24,10 +24,12 @@ public class ProductService {
    private static final int sizePage = 5;
 
 
-    public List<Products> findAllProduct(int page) {
+    public List<ProductDto> findAllProduct(int page) {
         Pageable pageable = PageRequest.of(page, sizePage);
         Page<Products> pagedResult = productRepository.findAll(pageable);
-        return pagedResult.toList();
+        return pagedResult.toList().stream()
+                .map(ConverterProduct::productDtofromProduct)
+                .collect(Collectors.toList());
     }
 
     public void deleteProductById(Long id) {
