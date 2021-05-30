@@ -37,6 +37,24 @@
     <button class="ui-icon-link" ng-click="getPage(2)">3</button>
     <button class="ui-icon-link" ng-click="getPage(3)">4</button>
 
+    <h3>Добавить новый продукт</h3>
+    <form novalidate ng-submit="saveProduct()">
+        <div class="form-group col-md-6">
+            <label >Название</label>
+            <input class="form-control" type="text" ng-model="Product.title">
+        </div>
+        <div class="form-group col-md-6">
+            <label >Цена</label>
+            <input class="form-control" type="number" ng-model="Product.price">
+        </div>
+        <div class="form-group col-md-6">
+            <label >Категория</label>
+            <input class="form-control" type="text" ng-model="Product.category">
+        </div>
+        <div>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </div>
+    </form>
 </div>
 </body>
 </html>
