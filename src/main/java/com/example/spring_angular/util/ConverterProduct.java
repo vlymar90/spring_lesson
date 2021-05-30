@@ -12,4 +12,13 @@ public class ConverterProduct {
         products.setPrice(productDto.getPrice());
         return products;
     }
+
+    public static ProductDto productDtofromProduct(Products products) {
+        ProductDto productDto = new ProductDto();
+        productDto.setId(products.getId());
+        productDto.setTitle(products.getTitle());
+        productDto.setPrice(products.getPrice());
+        productDto.setCategory(products.getCategory().getTitle());
+        return productDto;
+    }
 }
